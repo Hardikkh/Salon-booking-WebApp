@@ -1,0 +1,44 @@
+<%- include('partials/header'); -%>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+<% var time; %>
+
+<div class="container">
+    <div class="row">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <% items.forEach(function(booking){ %>
+            <% date = booking.datetime %>
+            <% if(date.getHours()>12){time=date.getHours()-12 + "pm"}else{time=date.getHours() + "am"} %>
+            <tr>
+                <td><%= booking.name %></td>
+                <td><%=date.getDate()%> <%=monthNames[date.getMonth()]%> </td>
+                <td><%= time %></td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

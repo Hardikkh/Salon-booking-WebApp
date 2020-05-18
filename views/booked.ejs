@@ -1,0 +1,14 @@
+<%- include('partials/header'); -%>
+
+<% const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]; %>
+<% var time; %>
+<% if(date.getHours()>12){time=date.getHours()-12 + " pm"}else{time=date.getHours() + " am"} %>
+
+<div class="container">
+    <div class="row">
+        <h3 style="text-align:center"><%= name %>, your booking is confirmed</h3>
+        <h3 style="text-align:center">for <%=date.getDate()%> <%=monthNames[date.getMonth()]%> at <%= time %> </h3>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>
